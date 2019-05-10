@@ -9,7 +9,7 @@ iris %>%
 
 iris %>%
   select(starts_with("Petal"), Species) %>%
-  group_by(Species) %>%
+  nest(-Species) %>%
   summarize(mean(Petal.Width)) %>%
   ungroup()
 
