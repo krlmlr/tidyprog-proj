@@ -12,4 +12,7 @@ iris %>%
   nest(-Species) %>%
   mutate(mean = map(data, ~ summarize(., mean(Petal.Width))))
 
-mutate_map <- function(.data, col, )
+mutate_map <- function(.data, col, expr) {
+  .data %>%
+    mutate()
+}
