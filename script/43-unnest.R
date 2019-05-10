@@ -35,6 +35,8 @@ dict_data %>%
   pull(data) %>%
   safe_bind_rows()
 
+asdf
+
 
 # Mapping in nested view are grouped operation in the flat view:
 dict_data %>%
