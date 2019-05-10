@@ -14,7 +14,6 @@ use_names(one = 3, two = 4)
 use_names(two = 3, one = 4)
 
 # Partial matching
-use_names(3, 4)
 use_names(o = 3, 4)
 use_names(3, o = 4)
 use_names(o = 3, t = 4)
