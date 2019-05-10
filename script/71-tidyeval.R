@@ -109,6 +109,8 @@ mutate_map <- function(.data, col, ...) {
 
   new_column <- rlang::sym(names(quos))
 
+  expr <- rlang::eval_tidy(quos[[1]])
+
   .data %>%
     mutate(new_column = map(!!col, expr))
 }
