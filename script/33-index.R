@@ -32,6 +32,11 @@ input_files %>%
 
 # Exercises
 
+list(a = 1, b = 2, c = 3)[2]
+list(a = 1, b = 2, c = 3)[[2]]
+
+input_files["toronto"]
+
 input_files %>%
   enframe() %>%
   filter(name == "toronto") %>%
