@@ -57,3 +57,10 @@ iris %>%
   mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
   select(-data) %>%
   unnest()
+
+iris %>%
+  select(starts_with("Petal"), Species) %>%
+  nest(-Species) %>%
+  mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
+  select(-data) %>%
+  unnest()
