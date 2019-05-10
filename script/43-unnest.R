@@ -25,7 +25,10 @@ check_columns_same <- function(x, y) {
 bind_rows <- function(...) {
   data_frames <- list(...)
 
+  # Called for the side effect
   reduce(data_frames, check_columns_same)
+
+
 }
 
 # Mapping in nested view are grouped operation in the flat view:
