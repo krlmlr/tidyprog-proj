@@ -42,6 +42,10 @@ weather_data %>%
   geom_bar(aes(fill = summary), position = position_dodge2("dodge", preserve = "single"))
 
 # Temperature and apparent temperature
+weather_data %>%
+  select(city_code, time, temperature, apparentTemperature) %>%
+  gather(kind, temperature, -city_code, -time)
+
 temperature_data <-
   weather_data %>%
   select(city_code, time, temperature, apparentTemperature) %>%
