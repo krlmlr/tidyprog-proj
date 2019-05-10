@@ -25,3 +25,6 @@ coordinates %>%
 # Apply to entire list:
 coordinates %>%
   map(~ flatten_dbl(.))
+
+coordinates %>%
+  map(flatten_dbl
