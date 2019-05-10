@@ -53,7 +53,7 @@ read_weather_data_non_europe <- function() {
   tel_aviv <- readxl::read_excel(here("data/weather", "tel_aviv.xlsx"))
 
   # Create ensemble dataset
-  weather_data <- bind_rows(
+  weather_data_non_europe <- bind_rows(
     toronto = toronto,
     tel_aviv = tel_aviv,
     .id = "city_code"
