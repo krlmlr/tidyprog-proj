@@ -57,3 +57,14 @@ fs::dir_info() %>%
 fs::dir_info() %>%
   select(name = path, path) %>%
   deframe()
+
+fs::dir_info() %>%
+  select(path) %>%
+  mutate(name = path, path) %>% I
+  deframe() %>%
+  names()
+
+fs::dir_info() %>%
+  select(name = path, path) %>%
+  deframe() %>%
+  enframe()
