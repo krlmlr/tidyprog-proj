@@ -38,8 +38,8 @@ find_good_times
 find_good_times(input_data[[4]])
 
 # Run the function on the entire dataset
-manipulated_data <- map(input_data, ~ manipulator(.))
-manipulated_data
+good_times <- map(input_data, ~ find_good_times(.))
+good_times
 
 # Shortcut
 map(input_data, manipulator)
