@@ -113,7 +113,7 @@ mutate_map <- function(.data, col, ...) {
   expr <- args[[1]]
 
   .data %>%
-    mutate(new_column = map(!!col, expr))
+    mutate(!!new_column = map(!!col, expr))
 }
 
 iris_nested %>%
