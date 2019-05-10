@@ -40,6 +40,7 @@ read_weather_data <- function(omit_zurich = FALSE, omit_toronto = FALSE) {
 
 # Good:
 read_weather_data(omit_zurich = TRUE)
+read_weather_data(omit_toronto = TRUE)
 
 # Bad:
 read_weather_data(TRUE)
