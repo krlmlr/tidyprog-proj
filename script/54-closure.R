@@ -71,4 +71,4 @@ safely(get_weather_data_for)
 map(cities, ~ safely(get_weather_data_for)(.))
 
 safe_get_weather_data_for <- safely(get_weather_data_for)
-map(cities, ~ safely(get_weather_data_for)(.))
+map(cities, ~ safe_get_weather_data_for(.))
