@@ -20,7 +20,6 @@ dict_data %>%
 
 check_columns_same <- function(x, y) {
   stopifnot(identical(colnames(x), colnames(y)))
-  invisible()
 }
 
 bind_rows <- function(...) {
