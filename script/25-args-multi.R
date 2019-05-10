@@ -38,6 +38,8 @@ read_weather_data <- function(omit_zurich = FALSE, omit_toronto = FALSE) {
     filter( !(city_code == "toronto" & omit_toronto) )
 }
 
+read_weather_data(omit_zurich = FALSE)
+
 # Ellipsis: variable argument list, useful for passing arguments downstream
 weather_path <- function(...) {
   # All arguments are passed on
