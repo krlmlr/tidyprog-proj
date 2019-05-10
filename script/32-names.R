@@ -60,7 +60,7 @@ fs::dir_info() %>%
 
 fs::dir_info() %>%
   select(path) %>%
-  mutate(name = path, path) %>% I
+  mutate(name = path) %>% I
   deframe() %>%
   names()
 
