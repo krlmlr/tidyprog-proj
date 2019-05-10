@@ -38,7 +38,10 @@ read_weather_data <- function(omit_zurich = FALSE, omit_toronto = FALSE) {
     filter( !(city_code == "toronto" & omit_toronto) )
 }
 
+# Good:
 read_weather_data(omit_zurich = TRUE)
+
+# Bad:
 read_weather_data(TRUE)
 
 # Ellipsis: variable argument list, useful for passing arguments downstream
