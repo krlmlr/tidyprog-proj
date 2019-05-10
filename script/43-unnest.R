@@ -18,6 +18,10 @@ dict_data %>%
   pull(data) %>%
   bind_rows()
 
+bind_rows <- function(...) {
+
+}
+
 # Mapping in nested view are grouped operation in the flat view:
 dict_data %>%
   mutate(n = map_int(data, nrow)) %>%
