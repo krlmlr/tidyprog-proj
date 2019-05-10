@@ -7,8 +7,17 @@ weather_path <- function(filename) {
   # Returned value
   here("data/weather", filename)
 }
+
 read_weather_file <- function(filename) {
   readxl::read_excel(weather_path(filename))
+}
+
+get_weather_file_for <- function(city_code) {
+  paste0(city_code, ".xlsx")
+}
+
+get_weather_data_for <- function(city_code) {
+  read_weather_file(get_weather_file_for(city_code))
 }
 
 # Create a function that loads a particular dataset
