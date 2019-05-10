@@ -26,7 +26,7 @@ safe_bind_rows <- function(data_frames) {
   # Called for the side effect
   reduce(data_frames, check_columns_same)
 
-  bind_rows(data_frames)
+  dplyr::bind_rows(data_frames)
 }
 
 dict_data %>%
