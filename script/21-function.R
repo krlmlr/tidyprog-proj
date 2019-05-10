@@ -60,7 +60,7 @@ read_weather_data_non_europe <- function() {
   )
 
   # Return it
-  weather_data
+  weather_data_non_europe
 }
 
 read_weather_data_non_europe()
