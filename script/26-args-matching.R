@@ -42,7 +42,7 @@ ellipsis_direct_test <- function(...) {
   list(..1, ..2)
 }
 
-ellipsis_test(a = 1, 2, c = 3:5)
+ellipsis_direct_test(a = 1, 2, c = 3:5)
 
 # Exercises
 
