@@ -86,3 +86,24 @@ iris_nested %>%
   mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
   select(-data) %>%
   unnest()
+
+
+
+
+mutate_map <- function(.data, col, expr) {
+  col <- rlang::enexpr(col)
+
+  .data %>%
+    mutate(new_column = map(!!col, expr))
+}
+
+iris_nested %>%
+  mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
+  select(-data) %>%
+  unnest()
+
+iris_nested %>%
+  mutate(col = list(tibble(Petal.Width = -3))) %>%
+  mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
+  select(-data) %>%
+  unnest()
