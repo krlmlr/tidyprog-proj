@@ -1,7 +1,7 @@
 library(tidyverse)
 
 iris %>%
-  select(starts_with("Petal")) %>%
+  select(starts_with("Petal"), Species) %>%
   group_by(Species) %>%
-  summarize_all(mean) %>%
+  summarize(mean(Petal.Width)) %>%
   ungroup()
