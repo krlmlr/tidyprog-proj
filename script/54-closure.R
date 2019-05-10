@@ -63,4 +63,5 @@ read_loudly
 read_loudly("berlin.xlsx")
 
 # safely()
-list("berlin", "toronto", "milan", "tel_aviv")
+cities <- list("berlin", "toronto", "milan", "tel_aviv")
+
