@@ -137,7 +137,7 @@ mutate_map <- function(.data, col, ...) {
   expr <- quos[[1]]
 
   .data %>%
-    mutate(!!new_column := map(!!col, !!expr))
+    mutate(!!new_column := map(!!col, ~ rlang::eval_tidy(expr)))
 }
 
 iris_nested %>%
