@@ -100,8 +100,7 @@ map_mutate <- function(.data, col, expr) {
 
 dict_data <-
   dict %>%
-  mutate(
-    data = map(weather_filename, ~ readxl::read_excel(here(.)))
+  map_mutate(weather_filename, ~ readxl::read_excel(here(.)))
   )
 
 
