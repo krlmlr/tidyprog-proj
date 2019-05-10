@@ -6,10 +6,12 @@ iris %>%
   summarize(mean(Petal.Width)) %>%
   ungroup()
 
-
-iris %>%
+iris_nested <-
+  iris %>%
   select(starts_with("Petal"), Species) %>%
-  nest(-Species) %>%
+  nest(-Species)
+
+iris_nested %>%
   mutate(mean = map(data, ~ summarize(., mean(Petal.Width))))
 
 mutate_map <- function(.data, col, expr) {
