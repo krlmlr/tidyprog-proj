@@ -14,9 +14,13 @@ dict_data <-
 dict_data %>%
   unnest()
 
+dict_data %>%
+  pull(data) %>%
+  bind_rows()
+
 # Mapping in nested view are grouped operation in the flat view:
 dict_data %>%
-  mutate(n = map_int(data, nrow)) %>% 
+  mutate(n = map_int(data, nrow)) %>%
   select(-data)
 
 dict_data %>%
@@ -36,11 +40,11 @@ dict_data %>%
 
 # Exercises
 
-iris %>% 
-  group_by(Species) %>% 
-  summarize_all(list(Mean = mean)) %>% 
+iris %>%
+  group_by(Species) %>%
+  summarize_all(list(Mean = mean)) %>%
   ungroup()
 
-dict_data %>% 
-  as.list() %>% 
+dict_data %>%
+  as.list() %>%
   enframe()
