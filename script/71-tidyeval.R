@@ -104,6 +104,8 @@ iris_nested %>%
 mutate_map <- function(.data, col, ...) {
   col <- rlang::enexpr(col)
 
+  quos <- rlang::quos(...)
+
   .data %>%
     mutate(new_column = map(!!col, expr))
 }
