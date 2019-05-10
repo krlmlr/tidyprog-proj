@@ -81,7 +81,7 @@ dict_data %>%
   ) %>%
   pull()
 
-# Keep important columns
+# Parallel
 dict_data %>%
   mutate(
     desc = pmap_chr(
