@@ -95,7 +95,7 @@ map_mutate <- function(.data, col, expr) {
   col <- rlang::enexpr(col)
 
   .data %>%
-    mutate(data = map(col, expr))
+    mutate(data = map(!!col, expr))
 }
 
 # Process a tibble rowwise: an alternative
