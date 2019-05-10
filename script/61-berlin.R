@@ -24,9 +24,11 @@ berlin %>%
 
 berlin %>%
   pluck("features", 1)
+berlin[["features"]][[1]]
 
 berlin %>%
   pluck("features", 1, "geometry")
+berlin[["features"]][[1]][["geometry"]]
 
 berlin %>%
   pluck("features", 1, "geometry", "coordinates")
