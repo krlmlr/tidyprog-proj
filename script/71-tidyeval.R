@@ -105,8 +105,8 @@ iris_nested %>%
 mutate_map <- function(.data, col, ...) {
   col <- rlang::enexpr(col)
 
-  quos <- list(...)
-  stopifnot(length(quos) == 1)
+  args <- list(...)
+  stopifnot(length(args) == 1)
 
   new_column <- rlang::sym(names(quos))
 
