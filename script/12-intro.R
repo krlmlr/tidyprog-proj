@@ -49,6 +49,8 @@ temperature_data <-
   mutate(apparent = (kind == "apparentTemperature")) %>%
   select(-kind)
 
+temperature_data
+
 temperature_data %>%
   ggplot(aes(x = time, color = city_code)) +
   geom_linerange(data = weather_data, aes(ymin = temperature, ymax = apparentTemperature)) +
