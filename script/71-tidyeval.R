@@ -109,6 +109,6 @@ mutate_map <- function(.data, col, ...) {
 }
 
 iris_nested %>%
-  mutate_map(data, new_data = ~ summarize(., mean(Petal.Width))) %>%
+  mutate_map(data, mean = ~ summarize(., mean(Petal.Width))) %>%
   select(-data) %>%
   unnest()
