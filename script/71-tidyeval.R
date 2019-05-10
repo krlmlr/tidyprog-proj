@@ -107,7 +107,7 @@ mutate_map <- function(.data, col, ...) {
   quos <- rlang::enquos(..., .named = TRUE)
   stopifnot(length(quos) == 1)
 
-  new_column <- names(quos)
+  new_column <- rlang::sym(names(quos))
 
   .data %>%
     mutate(new_column = map(!!col, expr))
