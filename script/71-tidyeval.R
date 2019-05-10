@@ -134,10 +134,10 @@ mutate_map <- function(.data, col, ...) {
 
   new_column <- rlang::sym(names(quos))
 
-  expr <-
+  expr <- rlang::new_formula(rhs = quos[[1]], env = rlang::quo_get_env(quos[[1]]))
 
   .data %>%
-    mutate(new_column = map(!!col, expr))
+    mutate(new_column = map(!!col, !!expr))
 }
 
 iris_nested %>%
