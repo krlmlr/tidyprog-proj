@@ -19,7 +19,7 @@ dict_data %>%
   bind_rows()
 
 check_columns_same <- function(x, y) {
-
+  stopifnot(identical(colnames(x), colnames(y)))
 }
 
 bind_rows <- function(...) {
