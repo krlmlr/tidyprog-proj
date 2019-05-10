@@ -46,10 +46,12 @@ dict %>%
   pull(weather_filename) %>%
   here()
 
-dict %>%
-  pull(weather_filename) %>%
-  here() %>%
-  readxl::read_excel()
+try(
+  dict %>%
+    pull(weather_filename) %>%
+    here() %>%
+    readxl::read_excel()
+)
 
 # Keep important columns
 dict_data <-
