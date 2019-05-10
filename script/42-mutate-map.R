@@ -101,7 +101,6 @@ map_mutate <- function(.data, col, expr) {
 dict_data <-
   dict %>%
   map_mutate(weather_filename, ~ readxl::read_excel(here(.)))
-  )
 
 
 # Process a tibble rowwise: an alternative
