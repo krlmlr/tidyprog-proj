@@ -68,7 +68,7 @@ dict_data %>%
   mutate(
     desc = map2_chr(
       name, rows,
-      ~ paste0(ncol(..2), " columns in data for ", ..1)
+      ~ paste0(..2, " rows in data for ", ..1)
     )
   )
 
