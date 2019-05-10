@@ -28,8 +28,6 @@ read_weather_data <- function() {
   weather_data
 }
 
-asdf
-
 # Functions are first-class objects
 read_weather_data
 
