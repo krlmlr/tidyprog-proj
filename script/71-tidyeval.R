@@ -83,9 +83,7 @@ iris %>%
   select(-data) %>%
   unnest()
 
-iris %>%
-  select(starts_with("Petal"), Species) %>%
-  nest(-Species) %>%
+iris_nested %>%
   mutate(col = list(tibble(Petal.Width = -3))) %>%
   mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
   select(-data) %>%
