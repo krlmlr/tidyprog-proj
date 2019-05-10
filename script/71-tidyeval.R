@@ -126,6 +126,25 @@ iris_nested %>%
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 mutate_map <- function(.data, col, ...) {
   col <- rlang::enexpr(col)
 
