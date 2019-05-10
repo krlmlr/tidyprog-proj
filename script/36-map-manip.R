@@ -42,7 +42,7 @@ good_times <- map(input_data, ~ find_good_times(.))
 good_times
 
 # Shortcut
-map(input_data, manipulator)
+map(input_data, find_good_times)
 
 # Exercises
 
