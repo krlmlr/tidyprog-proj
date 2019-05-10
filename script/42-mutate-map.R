@@ -72,7 +72,14 @@ dict_data %>%
     )
   )
 
-asdf
+dict_data %>%
+  mutate(
+    desc = map2_chr(
+      name, rows,
+      ~ paste0(..2, " rows in data for ", ..1)
+    )
+  ) %>%
+  pull()
 
 # Keep important columns
 dict_data %>%
