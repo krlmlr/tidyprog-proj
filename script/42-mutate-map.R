@@ -33,7 +33,7 @@ dict_data <-
 dict_data
 
 # Also with map2:
-dict_data %>% 
+dict_data %>%
   mutate(
     desc = map2_chr(
       name, rows,
@@ -42,7 +42,7 @@ dict_data %>%
   )
 
 # Keep important columns
-dict_data %>% 
+dict_data %>%
   mutate(
     desc = pmap_chr(
       list(name, rows),
@@ -50,7 +50,20 @@ dict_data %>%
     )
   )
 
+# Process a tibble rowwise: an alternative
+processor <- function(row) {
+  row %>%
+    mutate(cells = prod(dim(data[[1]])))
+}
+
+dict_data %>%
+  rowid_to_column() %>%
+  nest(-rowid) %>%
+  pull() %>%
+  map(processor) %>%
+  bind_rows()
+
 # Exercises
 
-input_data %>% 
+input_data %>%
   imap_chr(~ paste0(.y, ": ", nrow(.x), " rows"))
