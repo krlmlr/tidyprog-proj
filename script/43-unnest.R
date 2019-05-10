@@ -22,7 +22,7 @@ check_columns_same <- function(x, y) {
   stopifnot(identical(colnames(x), colnames(y)))
 }
 
-bind_rows <- function(...) {
+safe_bind_rows <- function(...) {
   data_frames <- list(...)
 
   # Called for the side effect
@@ -33,7 +33,7 @@ bind_rows <- function(...) {
 
 dict_data %>%
   pull(data) %>%
-  bind_rows()
+  safe_bind_rows()
 
 
 # Mapping in nested view are grouped operation in the flat view:
