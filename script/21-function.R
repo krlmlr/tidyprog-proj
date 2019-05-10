@@ -28,6 +28,8 @@ read_weather_data <- function() {
   weather_data
 }
 
+asdf
+
 # Functions are first-class objects
 read_weather_data
 
@@ -39,7 +41,7 @@ read_weather_data()
 ls()
 
 # Pipe
-read_weather_data() %>% 
+read_weather_data() %>%
   count(city_code)
 
 # Assign result to use in further operations
