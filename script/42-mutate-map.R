@@ -86,7 +86,7 @@ dict_data %>%
   mutate(
     desc = pmap_chr(
       list(name, rows),
-      ~ paste0(ncol(..2), " columns in data for ", ..1)
+      ~ paste0(..2, " rows in data for ", ..1)
     )
   )
 
