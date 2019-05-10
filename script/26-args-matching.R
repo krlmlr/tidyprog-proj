@@ -39,6 +39,7 @@ ellipsis_test(a = 1, 2, c = 3:5)
 
 # Arguments in ellipsis can be accessed with ..1, ..2 etc.
 ellipsis_direct_test <- function(...) {
+  list(..1, ..2)
 }
 
 ellipsis_test(a = 1, 2, c = 3:5)
