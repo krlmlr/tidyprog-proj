@@ -18,6 +18,10 @@ dict_data %>%
   pull(data) %>%
   bind_rows()
 
+check_columns_same <- function(x, y) {
+
+}
+
 bind_rows <- function(...) {
   data_frames <- list(...)
 
