@@ -14,5 +14,5 @@ iris %>%
 
 mutate_map <- function(.data, col, expr) {
   .data %>%
-    mutate()
+    mutate(new_column = )
 }
