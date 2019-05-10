@@ -42,7 +42,7 @@ iris %>%
   select(-data) %>%
   unnest()
 
-
+library(rlang)
 
 mutate_map <- function(.data, col, expr) {
   col <- rlang::
