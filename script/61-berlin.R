@@ -17,6 +17,7 @@ berlin$features[[1]]
 # Uniform access with pluck():
 berlin %>%
   pluck("type")
+berlin[["type"]]
 
 berlin %>%
   pluck("features")
