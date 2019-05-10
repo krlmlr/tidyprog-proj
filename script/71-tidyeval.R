@@ -10,4 +10,4 @@ iris %>%
 iris %>%
   select(starts_with("Petal"), Species) %>%
   nest(-Species) %>%
-  mutate(mean = map_dbl(data, ~ mean(Petal.Width)))
+  mutate(mean = map_dbl(data, ~ mean(.$Petal.Width)))
