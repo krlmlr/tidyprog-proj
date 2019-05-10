@@ -90,6 +90,9 @@ dict_data %>%
     )
   )
 
+# A nicer interface?
+map_mutate <- function
+
 # Process a tibble rowwise: an alternative
 processor <- function(row) {
   row %>%
