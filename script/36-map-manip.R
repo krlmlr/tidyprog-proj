@@ -69,5 +69,15 @@ create_plot <- function(data) {
     ggplot(aes(x = pressure, y = humidity, color = temperature)) +
     geom_path()
 }
-input_data %>%
+plots <-
+  input_data %>%
   map(create_plot)
+
+plots
+plots[[2]]
+print(plots[[2]])
+
+plots %>%
+  map(class)
+
+ggplot2:::print.ggplot

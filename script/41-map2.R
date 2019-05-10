@@ -28,14 +28,24 @@ output_filenames <- tempfile(names(manipulated_data), fileext = ".csv")
 output_filenames
 
 # Iterate over pairs
-map2(manipulated_data, output_filenames, ~ readr::write_csv(..1, ..2))
+process_csv <- function(file, data) {
+  readr::write_csv(data, file)
+  message("Writing ", file)
+  invisible(file)
+}
+
+map2(manipulated_data, output_filenames, ~ process_csv(..2, ..1))
+
+invisible(map2(manipulated_data, output_filenames, ~ process_csv(..2, ..1)))
 
 # We don't really need the output
-walk2(manipulated_data, output_filenames, ~ readr::write_csv(..1, ..2))
+walk2(manipulated_data, output_filenames, ~ process_csv(..2, ..1))
+
+print(walk2(manipulated_data, output_filenames, ~ process_csv(..2, ..1)))
 
 # Exercises
 
 # map2() and walk2() are pipable:
-manipulated_data %>% 
-  walk2(output_filenames, ~ readr::write_csv(..1, ..2)) %>% 
+manipulated_data %>%
+  walk2(output_filenames, ~ readr::write_csv(..1, ..2)) %>%
   map_int(nrow)

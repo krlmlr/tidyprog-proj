@@ -28,6 +28,19 @@ input_data %>%
 
 # Exercises
 
+# map_dbl()
+input_data %>%
+  map(dim)
+
+try(
+  input_data %>%
+    map_dbl(dim)
+)
+
+input_data %>%
+  map_dbl(~ dim(.)[[2]])
+
+# Concise
 input_data %>%
   map(~ slice(., 1)) %>%
   map_dbl(~ pull(., temperature))
@@ -46,7 +59,7 @@ describe_weather <- function(weather_summary) {
   weather_summary %>%
     mutate(
       text = paste0(
-        "We had temperatures between ", min_temp, " and ", max_temp, " °C.",
+        "We had temperatures between ", min_temp, " and ", max_temp, " °C. ",
         "The average humidity was ", round(mean_humidity * 100), " %. ",
         "The weather was ", summary, "."
       )

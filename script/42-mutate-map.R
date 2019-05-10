@@ -12,8 +12,23 @@ input_data <-
   map(~ readxl::read_excel(here(.)))
 
 # Lists are also vectors, enframe() returns a nested tibble!
-input_data %>%
+nested_input_data <-
+  input_data %>%
   enframe()
+
+nested_input_data
+
+nested_input_data[1, "value", drop = TRUE][[1]]
+
+nested_input_data[1, "value", drop = FALSE]
+
+nested_input_data$value[[1]]
+
+nested_input_data[["value"]][[1]]
+
+nested_input_data %>%
+  pull(value) %>%
+  pluck(1)
 
 # Operate in "tibble-land" right away: columns are vectors
 dict %>%
@@ -21,6 +36,20 @@ dict %>%
   mutate(
     data = map(weather_filename, ~ readxl::read_excel(here(.)))
   )
+
+dict %>%
+  select(city_code, weather_filename) %>%
+  mutate(path = here(weather_filename)) %>%
+  mutate(data = map(path, readxl::read_excel))
+
+dict %>%
+  pull(weather_filename) %>%
+  here()
+
+dict %>%
+  pull(weather_filename) %>%
+  here() %>%
+  readxl::read_excel()
 
 # Keep important columns
 dict_data <-
