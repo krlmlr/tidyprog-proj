@@ -91,7 +91,7 @@ dict_data %>%
   )
 
 # A nicer interface?
-map_mutate <- function(.data, expr) {
+map_mutate <- function(.data, col, expr) {
   .data %>%
     mutate(data = map())
 }
