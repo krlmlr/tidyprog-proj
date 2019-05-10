@@ -21,6 +21,12 @@ weather_data <- bind_rows(
 # Show the data
 weather_data
 
+weather_data %>%
+  count()
+
+weather_data %>%
+  count(city_code)
+
 # Visibility vs. humitidy
 weather_data %>%
   ggplot(aes(x = pressure, y = humidity, color = city_code)) +
