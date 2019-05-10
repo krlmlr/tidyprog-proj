@@ -37,6 +37,14 @@ ellipsis_test <- function(...) {
 
 ellipsis_test(a = 1, 2, c = 3:5)
 
+# Arguments in ellipsis can be accessed with ..1, ..2 etc.
+ellipsis_test <- function(...) {
+  args <- list(...)
+  names(args)
+}
+
+ellipsis_test(a = 1, 2, c = 3:5)
+
 # Exercises
 
 # Naming, not naming or partly naming parameters in functions calls? What does the following return and why?
