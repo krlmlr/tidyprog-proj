@@ -92,6 +92,8 @@ dict_data %>%
 
 # A nicer interface?
 map_mutate <- function(.data, col, expr) {
+  col <- rlang::enexpr(col)
+
   .data %>%
     mutate(data = map(col, expr))
 }
