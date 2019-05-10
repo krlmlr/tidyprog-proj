@@ -19,6 +19,7 @@ dict_data %>%
   bind_rows()
 
 bind_rows <- function(...) {
+  data_frames <- list(...)
 
 }
 
