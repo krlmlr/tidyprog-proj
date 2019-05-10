@@ -65,3 +65,7 @@ read_loudly("berlin.xlsx")
 # safely()
 cities <- list("berlin", "toronto", "milan", "tel_aviv")
 try(map(cities, get_weather_data_for))
+map(cities, safely(get_weather_data_for))
+safely(get_weather_data_for)
+
+map(cities, ~ safely(get_weather_data_for)(.))
