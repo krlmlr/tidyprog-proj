@@ -31,7 +31,10 @@ read_tel_aviv <- make_read_weather_file("tel_aviv.xlsx")
 read_zurich <- make_read_weather_file("zurich.xlsx")
 
 read_berlin
+read_toronto
+
 read_berlin()
+read_toronto()
 
 # Use case: adverbs -- wrappers for other verbs
 loudly <- function(f) {
