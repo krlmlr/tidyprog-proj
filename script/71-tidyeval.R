@@ -97,12 +97,4 @@ mutate_map_simul <- function(.data, col, expr) {
 }
 
 iris_nested %>%
-  mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
-  select(-data) %>%
-  unnest()
-
-iris_nested %>%
-  mutate(col = list(tibble(Petal.Width = -3))) %>%
-  mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
-  select(-data) %>%
-  unnest()
+  mutate_map_simul(data, ~ summarize(., mean(Petal.Width)))
