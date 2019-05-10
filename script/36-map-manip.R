@@ -35,7 +35,7 @@ find_good_times <- function(data) {
 find_good_times
 
 # Test the function
-manipulator(input_data[[4]])
+find_good_times(input_data[[4]])
 
 # Run the function on the entire dataset
 manipulated_data <- map(input_data, ~ manipulator(.))
