@@ -45,7 +45,7 @@ iris %>%
 library(rlang)
 
 mutate_map <- function(.data, col, expr) {
-  col <- rlang::
+  col <- rlang::enexpr(col)
 
   .data %>%
     mutate(new_column = map(col, expr))
