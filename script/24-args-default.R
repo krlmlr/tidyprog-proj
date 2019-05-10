@@ -43,8 +43,6 @@ read_weather_data(TRUE)
 read_weather_data(omit_zurich = TRUE)
 read_weather_data()
 
-asdf
-
 # Exercises
 
 # Default city:
