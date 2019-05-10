@@ -1,4 +1,4 @@
-hi <- function(text = "Hello, world!") {
+hi <- function(text = "Woot!") {
   print(text)
   invisible(text)
 }
