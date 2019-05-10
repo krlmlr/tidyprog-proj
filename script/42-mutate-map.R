@@ -92,7 +92,8 @@ dict_data %>%
 
 # A nicer interface?
 map_mutate <- function(.data, expr) {
-
+  .data %>%
+    mutate(data = map())
 }
 
 # Process a tibble rowwise: an alternative
