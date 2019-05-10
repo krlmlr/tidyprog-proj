@@ -59,10 +59,9 @@ fs::dir_info() %>%
   deframe()
 
 fs::dir_info() %>%
-  select(path) %>%
-  mutate(name = path) %>% I
-  deframe() %>%
-  names()
+  select(name = path) %>%
+  mutate(value = name) %>% I
+  deframe()
 
 fs::dir_info() %>%
   select(name = path, path) %>%
