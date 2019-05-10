@@ -27,4 +27,4 @@ coordinates %>%
   map(~ flatten_dbl(.))
 
 coordinates %>%
-  map(flatten_dbl
+  map(flatten_dbl)
