@@ -28,7 +28,7 @@ bind_rows <- function(...) {
   # Called for the side effect
   reduce(data_frames, check_columns_same)
 
-  bind_rows(!!!data_frames)
+  bind_rows(data_frames)
 }
 
 # Mapping in nested view are grouped operation in the flat view:
