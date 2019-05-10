@@ -21,11 +21,14 @@ input_data %>%
 
 # ... or a character vector?
 input_data %>%
+  map_chr(~ nrow(.))
+
+input_data %>%
   map_chr(~ as.character(nrow(.)))
 
 # Exercises
 
-input_data %>% 
+input_data %>%
   map(~ slice(., 1)) %>%
   map_dbl(~ pull(., temperature))
 
@@ -47,11 +50,11 @@ describe_weather <- function(weather_summary) {
         "The average humidity was ", round(mean_humidity * 100), " %. ",
         "The weather was ", summary, "."
       )
-    ) %>% 
+    ) %>%
     pull()
 }
 
-input_data %>% 
+input_data %>%
   map(summarize_weather) %>%
-  map_chr(describe_weather) %>% 
+  map_chr(describe_weather) %>%
   enframe()
