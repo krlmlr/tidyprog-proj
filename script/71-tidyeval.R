@@ -108,7 +108,7 @@ mutate_map <- function(.data, col, ...) {
   args <- list(...)
   stopifnot(length(args) == 1)
 
-  new_column <- rlang::sym(names(quos))
+  new_column <- rlang::sym(names(args))
 
   expr <- args[[1]]
 
