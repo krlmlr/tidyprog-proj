@@ -76,9 +76,7 @@ mutate_map <- function(.data, col, expr) {
     mutate(new_column = map(!!col, expr))
 }
 
-iris %>%
-  select(starts_with("Petal"), Species) %>%
-  nest(-Species) %>%
+iris_nested %>%
   mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
   select(-data) %>%
   unnest()
