@@ -32,7 +32,7 @@ find_good_times <- function(data) {
 }
 
 # Functions are first-class objects!
-manipulator
+find_good_times
 
 # Test the function
 manipulator(input_data[[4]])
