@@ -31,7 +31,7 @@ bind_rows <- function(data_frames) {
 
 dict_data %>%
   pull(data) %>%
-  safe_bind_rows()
+  bind_rows()
 
 
 # Mapping in nested view are grouped operation in the flat view:
