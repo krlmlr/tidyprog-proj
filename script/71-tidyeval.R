@@ -101,6 +101,31 @@ iris_nested %>%
 
 
 
+
+mutate_map <- function(.data, col, ...) {
+  col <- rlang::enexpr(col)
+
+  quos <- rlang::enquos(..., .named = TRUE)
+  stopifnot(length(quos) == 1)
+
+  new_column <- rlang::sym(names(quos))
+
+  expr <- rlang::eval_tidy(quos[[1]])
+
+  .data %>%
+    mutate(new_column = map(!!col, expr))
+}
+
+iris_nested %>%
+  mutate_map(data, mean = ~ summarize(., mean(Petal.Width))) %>%
+  select(-data) %>%
+  unnest()
+
+
+
+
+
+
 mutate_map <- function(.data, col, ...) {
   col <- rlang::enexpr(col)
 
