@@ -1,11 +1,16 @@
 ### Do yo need tidy evaluation?
 
 library(tidyverse)
+library(rlang)
 
-# Implement a version of summarize() that ungroups:
+# Explicit capturing with enquos():
 summarize_ungroup <- function(.data, ...) {
+  # Capture (quote) with enquos()
+  quos <- enquos(...)
+
+  # Use (unquote-splice) with !!!
   .data %>%
-    summarize(...) %>%
+    summarize(!!!quos) %>%
     ungroup()
 }
 
