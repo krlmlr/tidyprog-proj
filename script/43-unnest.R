@@ -29,10 +29,11 @@ bind_rows <- function(data_frames) {
   dplyr::bind_rows(data_frames)
 }
 
-dict_data %>%
-  pull(data) %>%
-  bind_rows()
-
+try(
+  dict_data %>%
+    pull(data) %>%
+    bind_rows()
+)
 
 # Mapping in nested view are grouped operation in the flat view:
 dict_data %>%
