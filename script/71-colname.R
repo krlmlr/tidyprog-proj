@@ -54,5 +54,5 @@ try(
     tidy_histogram(y)
 )
 
-# The aes() function is doing the same:
+# This requires tidyeval support from the function that is called!
 aes

@@ -1,4 +1,4 @@
-### Do yo need tidy evaluation?
+### Explicit quote-unquote of ellipsis
 
 library(tidyverse)
 library(rlang)
@@ -24,3 +24,7 @@ mean_airtime_per_day
 
 mean_airtime_per_day %>%
   groups()
+
+# aes() does the same:
+# (summarize() did not at the time of writing: https://github.com/tidyverse/dplyr/pull/4357)
+aes
