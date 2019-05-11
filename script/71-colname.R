@@ -59,12 +59,12 @@ aes
 
 ### Exercises
 
-# mutate_map() function
-mutate_map <- function(.data, col, expr) {
-  col <- rlang::enexpr(col)
+# mutate_map_dbl() function
+mutate_map_dbl <- function(.data, col, expr) {
+  quo <- enquo(col)
 
   .data %>%
-    mutate(new_column = map(!!col, expr))
+    mutate(new_column = map_dbl(!!quo, expr))
 }
 
 iris_nested <-
@@ -72,6 +72,4 @@ iris_nested <-
   nest(-Species)
 
 iris_nested %>%
-  mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
-  select(-data) %>%
-  unnest()
+  mutate_map_dbl(data, ~ mean(.$Petal.Width))
