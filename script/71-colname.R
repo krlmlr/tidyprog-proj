@@ -14,15 +14,15 @@ tidy_histogram <- function(.data, x) {
 # Would that work?
 data <- tibble(a = 1:10)
 
-try(
+try(print(
   data %>%
     tidy_histogram(a)
-)
+))
 
-try(
+try(print(
   data %>%
     tidy_histogram("a")
-)
+))
 
 # No, the function is looking for a variable named x,
 # no matter what we pass in:
@@ -49,10 +49,29 @@ data %>%
 data %>%
   tidy_histogram(x)
 
-try(
+try(print(
   data %>%
     tidy_histogram(y)
-)
+))
 
 # This requires tidyeval support from the function that is called!
 aes
+
+### Exercises
+
+# mutate_map() function
+mutate_map <- function(.data, col, expr) {
+  col <- rlang::enexpr(col)
+
+  .data %>%
+    mutate(new_column = map(!!col, expr))
+}
+
+iris_nested <-
+  iris %>%
+  nest(-Species)
+
+iris_nested %>%
+  mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
+  select(-data) %>%
+  unnest()
