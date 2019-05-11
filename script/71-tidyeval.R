@@ -21,10 +21,12 @@ mutate_map <- function(.data, col, expr) {
     mutate(new_column = map(col, expr))
 }
 
-iris %>%
-  select(starts_with("Petal"), Species) %>%
-  nest(-Species) %>%
-  mutate_map(data, ~ summarize(., mean(Petal.Width)))
+try(
+  iris %>%
+    select(starts_with("Petal"), Species) %>%
+    nest(-Species) %>%
+    mutate_map(data, ~ summarize(., mean(Petal.Width)))
+)
 
 data
 
@@ -51,12 +53,14 @@ mutate_map <- function(.data, col, expr) {
     mutate(new_column = map(col, expr))
 }
 
-iris %>%
-  select(starts_with("Petal"), Species) %>%
-  nest(-Species) %>%
-  mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
-  select(-data) %>%
-  unnest()
+try(
+  iris %>%
+    select(starts_with("Petal"), Species) %>%
+    nest(-Species) %>%
+    mutate_map(data, ~ summarize(., mean(Petal.Width))) %>%
+    select(-data) %>%
+    unnest()
+)
 
 iris %>%
   select(starts_with("Petal"), Species) %>%
@@ -121,31 +125,10 @@ iris_nested %>%
   select(-data) %>%
   unnest()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 as_mapper_quosure <- function(quo) {
-  rlang::eval_tidy(function(..., . = ..1, .x = ..1, .y = ..2) !!quo)
+  expr <- rlang::quo_get_expr(quo)
+
+  rlang::new_function(alist(... = , . = ..1, .x = ..1, .y = ..2), expr)
 }
 
 mutate_map <- function(.data, col, ...) {
