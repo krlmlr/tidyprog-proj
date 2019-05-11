@@ -144,6 +144,9 @@ iris_nested %>%
 
 
 
+as_mapper_quosure <- function(quo) {
+  rlang::eval_tidy(function(..., . = ..1, .x = ..1, .y = ..2) !!quo)
+}
 
 mutate_map <- function(.data, col, ...) {
   col <- rlang::enexpr(col)
@@ -153,10 +156,10 @@ mutate_map <- function(.data, col, ...) {
 
   new_column <- rlang::sym(names(quos))
 
-  expr <- quos[[1]]
+  expr <- as_mapper_quosure(quos[[1]])
 
   .data %>%
-    mutate(!!new_column := map(!!col, ))
+    mutate(!!new_column := map(!!col, expr))
 }
 
 iris_nested %>%
